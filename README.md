@@ -19,9 +19,13 @@ galaxy_types (lookup table)
 A reference table that classifies galaxies by type — Spiral, Elliptical, Irregular, Lenticular, and Dwarf — used as a foreign key in the galaxy table.
 
 🔗 Relationships
-TableReferencesVia Foreign Keystargalaxygalaxy_idplanetstarstar_idmoonplanetplanet_idgalaxygalaxy_typesgalaxy_type_id
+_Table     | References  | Via Foreign Key_
+star       galaxy           galaxy_id
+planet     star              star_id
+moon       planet           planet_id
+galaxy     galaxy_types     galaxy_type_id
 
-🛠️ Technical Highlights
+ Highlights
 
 Database: PostgreSQL
 Primary keys auto-increment using SERIAL on all tables
@@ -31,8 +35,6 @@ All name columns are VARCHAR and required to be unique
 Foreign keys follow consistent naming — each FK column shares the name of the column it references
 
 
-📊 Data Summary
-TableRowsgalaxy_types5galaxy7star7planet12moon20
 
 🚀 Getting Started
 
